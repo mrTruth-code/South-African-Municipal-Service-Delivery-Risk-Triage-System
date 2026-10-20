@@ -223,6 +223,13 @@ def build_app():
 
     return demo
 
+# Top-level exports required by serverless hosting providers (Vercel, Hugging Face, AWS Lambda, Render, WSGI/ASGI)
+# Gradio Blocks instances expose the underlying FastAPI/Starlette application via `.app`
+demo = build_app()
+app = getattr(demo, "app", demo)
+application = app
+handler = app
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description="Launch Gradio Service Delivery Outage Triage Dashboard")
@@ -231,7 +238,6 @@ if __name__ == '__main__':
     parser.add_argument('--server-name', type=str, default="127.0.0.1", help='Server IP to bind (use 0.0.0.0 for LAN access)')
     args, _ = parser.parse_known_args()
 
-    demo = build_app()
     print(f"\n" + "="*70)
     print("🚀 LAUNCHING MUNICIPAL OUTAGE TRIAGE DASHBOARD (IDA117V)")
     print(f"👉 Local Access URL: http://{args.server_name}:{args.port}")
