@@ -5,6 +5,17 @@ Compatible with Streamlit Community Cloud (share.streamlit.io) and Streamlit Pla
 """
 
 import os
+import sys
+
+# Ensure src/ is in sys.path so unpickling references to pipeline module succeed
+SRC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src')
+if SRC_DIR not in sys.path:
+    sys.path.insert(0, SRC_DIR)
+
+# Also import pipeline into top-level sys.modules in case pickle looks for 'pipeline'
+import pipeline
+sys.modules['pipeline'] = pipeline
+
 import streamlit as st
 import pandas as pd
 import numpy as np
