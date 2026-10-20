@@ -232,16 +232,23 @@ handler = app
 
 if __name__ == '__main__':
     import argparse
+    import sys
+    # Ensure stdout/stderr handle UTF-8 cleanly on Windows
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
     parser = argparse.ArgumentParser(description="Launch Gradio Service Delivery Outage Triage Dashboard")
     parser.add_argument('--share', action='store_true', help='Generate a temporary public URL via Gradio Live')
     parser.add_argument('--port', type=int, default=7860, help='Port to bind the web server (default: 7860)')
     parser.add_argument('--server-name', type=str, default="127.0.0.1", help='Server IP to bind (use 0.0.0.0 for LAN access)')
     args, _ = parser.parse_known_args()
 
-    print(f"\n" + "="*70)
-    print("🚀 LAUNCHING MUNICIPAL OUTAGE TRIAGE DASHBOARD (IDA117V)")
-    print(f"👉 Local Access URL: http://{args.server_name}:{args.port}")
+    print("\n" + "="*70)
+    print("LAUNCHING MUNICIPAL OUTAGE TRIAGE DASHBOARD (IDA117V)")
+    print(f"Local Access URL: http://{args.server_name}:{args.port}")
     if args.share:
-        print("🌐 Generating Public Share Link (Gradio Live)...")
+        print("Generating Public Share Link (Gradio Live)...")
     print("="*70 + "\n")
     demo.launch(server_name=args.server_name, server_port=args.port, share=args.share)
