@@ -1,0 +1,8 @@
+Metric,Score,Interpretation
+Test Accuracy,0.9443,94.4% of municipal wards correctly triaged (661 / 700 correct)
+Test Macro-F1,0.9412,Exceptional balanced performance across all three vulnerability tiers
+Test Weighted-F1,0.9441,Consistent overall population-level reliability
+Test Macro-Precision,0.9438,Low false alarm rate; prevents wasted inspection resources
+Test Macro-Recall,0.9389,Successfully captures ~94% of at-risk communities
+Test ROC-AUC (OvR),0.9845,Near-flawless rank discrimination boundary
+Test PR-AUC (OvR),0.9512,Robust performance under natural class imbalance

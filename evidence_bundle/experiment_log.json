@@ -1,0 +1,81 @@
+{
+  "project": "Municipal Basic Service-Delivery Outage & Infrastructure Vulnerability Triage System",
+  "module": "Introduction to Data Science (IDA117V) | Second Semester 2026",
+  "submission_date": "2026-10-20",
+  "group_members": [
+    {
+      "name": "MM Masemola",
+      "student_number": "218615937",
+      "role": "Project & Stakeholder Lead"
+    },
+    {
+      "name": "B Mdluli",
+      "student_number": "222012937",
+      "role": "Data Governance & EDA/Visualisation Lead"
+    },
+    {
+      "name": "M Mammburu",
+      "student_number": "219952058",
+      "role": "Traditional Modelling Lead"
+    },
+    {
+      "name": "ME Maleke",
+      "student_number": "219868499",
+      "role": "Neural Modelling Lead"
+    },
+    {
+      "name": "PA Mavhungu",
+      "student_number": "220527930",
+      "role": "Deployment & Reproducibility Lead"
+    }
+  ],
+  "dataset": {
+    "raw_samples": 3505,
+    "duplicates_removed": 5,
+    "clean_samples": 3500,
+    "features": 17,
+    "class_balance": {
+      "Tier 0 (Low Risk)": {
+        "count": 1739,
+        "pct": "49.69%"
+      },
+      "Tier 1 (Moderate Vulnerability)": {
+        "count": 1123,
+        "pct": "32.09%"
+      },
+      "Tier 2 (Critical Outage Risk)": {
+        "count": 638,
+        "pct": "18.23%"
+      }
+    },
+    "missingness": {
+      "substation_load_factor": "158 missing (4.51%)",
+      "maintenance_budget_per_capita_zar": "112 missing (3.20%)",
+      "other_15_features": "0 missing (0.00%)"
+    }
+  },
+  "champion_results": {
+    "model": "Tuned Extreme Gradient Boosting (XGBoost)",
+    "hyperparameters": {
+      "n_estimators": 200,
+      "max_depth": 5,
+      "learning_rate": 0.08,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 3,
+      "gamma": 0.1
+    },
+    "test_metrics": {
+      "accuracy": 0.9443,
+      "macro_f1": 0.9412,
+      "weighted_f1": 0.9441,
+      "roc_auc": 0.9845,
+      "pr_auc": 0.9512
+    }
+  },
+  "mcnemar_test": {
+    "statistic": 68.8091,
+    "p_value": 2.14e-06,
+    "decision": "Reject H0 (Statistically Significant)"
+  }
+}

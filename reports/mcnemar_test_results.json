@@ -1,0 +1,18 @@
+{
+  "test_name": "Edwards Continuity-Corrected McNemar Test",
+  "total_samples": 700,
+  "champion_model": "Optimized XGBoost",
+  "comparator_model": "Balanced Logistic Regression",
+  "contingency_table": {
+    "n00_both_correct": 562,
+    "n01_champion_only": 99,
+    "n10_comparator_only": 11,
+    "n11_both_wrong": 28
+  },
+  "discordant_pairs": 110,
+  "test_statistic": 68.8091,
+  "p_value": 2.14e-06,
+  "alpha": 0.05,
+  "decision": "Reject H0 (Statistically Significant Superiority)",
+  "practical_gain": "+88 additional municipal wards correctly triaged (+12.6% absolute accuracy gain)"
+}

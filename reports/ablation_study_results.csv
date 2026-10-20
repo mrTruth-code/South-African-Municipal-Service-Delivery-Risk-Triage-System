@@ -1,0 +1,5 @@
+Experiment,CV Macro-F1,CV Std,Delta vs Champion,Component Dependency Interpretation
+Full Champion Pipeline,0.9388,0.0078,0.0,Full pipeline with domain feature engineering & tuned regularization
+Ablation 1: No Telemetry / Age,0.8412,0.0115,-0.0976,Removing infrastructure age & fault telemetry degrades Macro-F1 by ~9.8%. Proves static Census data alone is insufficient; live municipal telemetry is essential.
+Ablation 2: No Feature Engineering,0.9124,0.0084,-0.0264,"Removing domain indices (infra_stress_index, deprivation_index) drops Macro-F1 by ~2.6%, validating the utility of domain knowledge."
+Ablation 3: No Regularization,0.8985,0.0121,-0.0403,"Deep, unconstrained trees (depth=14, subsample=1.0) degrade generalization due to leaf overfitting."
